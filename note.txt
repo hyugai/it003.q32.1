@@ -1,0 +1,2 @@
+10% progress -> wecode
+ earn score as much as possible for each test case
