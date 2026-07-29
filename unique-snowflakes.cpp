@@ -5,30 +5,18 @@
 
 using namespace std;
 
+void input(size_t &, vector<size_t> &);
+size_t get_matrix_idx(const size_t &);
 void identify_identical(const vector<size_t> &);
 bool identical_right(const vector<size_t> &, const vector<size_t> &, int);
 bool identical_left(const vector<size_t> &, const vector<size_t> &, int);
-bool identical_left(const vector<size_t> &, const vector<size_t> &);
 
 int main() {
 
-    // vector<size_t> v{1, 2, 3, 1, 5};
-    // identify_identical(v);
+    size_t n;
+    vector<size_t> snowflakes;
 
     return 0;
-}
-
-bool identical_left(const vector<size_t> &v1, const vector<size_t> &v2) {
-
-    for (size_t start{0}; start < 6; start++) {
-        if (identical_left(v1, v2, start))
-            return true;
-
-        if (identical_right(v1, v2, start))
-            return true;
-    }
-
-    return false;
 }
 
 bool identical_left(const vector<size_t> &v1, const vector<size_t> &v2,
@@ -69,4 +57,20 @@ void identify_identical(const vector<size_t> &v) {
     }
 
     cout << "No two integers are alike." << endl;
+}
+
+size_t get_matrix_idx(const size_t &) {
+    size_t idx;
+    return idx;
+}
+
+void input(size_t &n, vector<size_t> &v) {
+
+    cin >> n;
+
+    for (size_t i{0}; i < n; i++) {
+        size_t x;
+        cin >> x;
+        v.push_back(x);
+    }
 }
