@@ -39,7 +39,7 @@ void solve(int const &n, int const &t, int *const &a, int *const &k) {
         int upper_bound{my_binary_search(true, l, r, target, a)};
         int lower_bound{my_binary_search(false, l, upper_bound, target, a)};
 
-        printf("%d %d\n", lower_bound, upper_bound + 1);
+        printf("%d %d\n", lower_bound, upper_bound);
 
         i++;
     }
@@ -49,7 +49,8 @@ int my_binary_search(bool is_forward, int l, int r, int target, int *a) {
     // printf("%d ", l);
 
     if (l > r) {
-        return (is_forward ? l - 1 : l);
+        // return (is_forward ? l - 1 : l);
+        return l;
     }
 
     int m{l + (r - l) / 2}, mid_value{a[m]};
