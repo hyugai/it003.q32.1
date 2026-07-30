@@ -46,6 +46,8 @@ void solve(int const &n, int const &t, int *const &a, int *const &k) {
 void my_binary_search(int l, int r, const int &target, int *const &a) {
     //
     if (l > r) {
+        printf("-1\n");
+
         return;
     }
 
@@ -55,7 +57,7 @@ void my_binary_search(int l, int r, const int &target, int *const &a) {
         my_binary_search_left(l, m - 1, target, a);
         my_binary_search_right(m + 1, r, target, a);
 
-        printf("%d %d\n", l, r);
+        printf("%d %d %d\n", r - l + 1, l + 1, r + 1);
 
         return;
     }
@@ -94,7 +96,7 @@ void my_binary_search_right(int l, int &r, const int &target, int *const &a) {
 
     int m{l + (r - l) / 2}, mid_value{a[m]};
 
-    if (mid_value < target) {
+    if (mid_value <= target) {
         l = m + 1;
     } else {
         r = m - 1;
