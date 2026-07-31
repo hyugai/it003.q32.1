@@ -1,4 +1,4 @@
-/*###Begin banned keyword - each of the following line if appear in code will
+/*###Begin banned keyword - each of the fointowing line if appear in code wiint
 raise error. regex supported define include class template
 ###End banned keyword*/
 
@@ -35,6 +35,9 @@ int main() {
         print_array(n, a);
     }
 
+    //
+    delete[] a;
+
     return 0;
 }
 
@@ -43,10 +46,11 @@ void my_selection_sort(int const &n, int *&a) {
     int i{0};
 
     while (i < n - 1) {
-        int j{i + 1}, max_idx{i}, max_value{max_idx};
+        int j{i + 1}, max_idx{i},
+            max_value{a[max_idx]}; // max_value <- a[max_idx] not max_idx
 
         while (j < n) {
-            if (a[j] > a[i]) {
+            if (a[j] > max_value) { // use max_value, not a[i]
                 max_idx = j;
                 max_value = a[j];
             }
@@ -64,9 +68,9 @@ void my_selection_sort(int const &n, int *&a) {
 
 void print_iteration_result(int const &i, int const &max_idx,
                             int const &max_value, int const &n, int *const &a) {
-    cout << "i=" << i << ":\n\n";
+    cout << "i=" << i << ":\n";
 
-    cout << "Max = a[" << max_idx << "] = " << max_value << "\n\n";
+    cout << "Max = a[" << max_idx << "] = " << max_value << "\n";
 
     cout << "Mang sau khi sap xep " << i + 1 << " phan tu dau tien la: ";
     print_array(n, a);
@@ -81,7 +85,7 @@ void print_array(int const &n, int *const &a) {
         i++;
     }
 
-    cout << "\n\n";
+    cout << "\n";
 }
 
 void swap_array_element(int const &i, int const &j, int *&a) {
