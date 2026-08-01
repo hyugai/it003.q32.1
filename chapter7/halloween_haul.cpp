@@ -11,48 +11,74 @@ struct node {
 
     node *left{nullptr}, *right{nullptr};
 };
-node *new_house(const int candy);
-node *new_nonhouse(node *const &left, node *const &right);
 
-void test_node();
+void delete_tree(node *tree);
 
 int main() {
     //
-    test_node();
+    char *line{nullptr};
+    node *tree{nullptr};
+
+    //
+
+    //
+    delete[] line;
+    delete_tree(tree);
 
     return 0;
 }
 
-int tree_candy(node *tree) {
-    if (!tree->left && !tree->right) { // rule 1: non-house
-        return tree->candy;
+void input(char *&line, node *&tree) {
+    //
+    line = new char[SIZE + 1];
+
+    cin.getline(line, SIZE);
+
+    int pos = 0;
+}
+
+node *read_tree(char *const &line, int *pos) {
+    // base case
+    node *tree = new node;
+
+    if (line[*pos] != '(') {
+
+        int candy{0}, digit{line[*pos]};
+
+        candy += digit - '0';
+
+        (*pos)++;
+
+        digit = line[*pos];
+
+        if (digit >= '0' && digit <= '9') {
+            candy = (candy * 10) + (digit - '0');
+        }
+
+        tree->candy = candy;
+
+    } else {
+        (*pos)++;
+        tree->left = read_tree(line, pos);
+
+        (*pos)++; // skip blank
+        tree->right = read_tree(line, pos);
+
+        (*pos)++;
     }
 
-    return tree_candy(tree->left) + tree_candy(tree->right);
+    return tree;
 }
 
-node *new_house(const int candy) {
+void delete_tree(node *tree) {
+    // base case
+    if (!tree) {
+        return;
+    }
+
     //
-    node *house{new node};
-    house->candy = candy;
+    delete_tree(tree->left);
+    delete_tree(tree->right);
 
-    return house;
-}
-
-node *new_nonhouse(node *const &left, node *const &right) {
-    //
-    node *nonhouse{new node};
-
-    nonhouse->left = left;
-    nonhouse->right = right;
-
-    return nonhouse;
-}
-
-void test_node() {
-    //
-    node *four{new_house(4)}, *nine{new_house(9)}, *B{new_nonhouse(four, nine)},
-        *fifteen{new_house(15)}, *C{new_nonhouse(B, fifteen)};
-
-    cout << C->right->candy << endl;
+    delete tree;
 }
