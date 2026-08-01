@@ -13,6 +13,8 @@ struct node {
 };
 
 void delete_tree(node *tree);
+node *read_tree(char *const &line, int *pos);
+void input(char *&line, node *&tree);
 
 int main() {
     //
@@ -20,6 +22,7 @@ int main() {
     node *tree{nullptr};
 
     //
+    input(line, tree);
 
     //
     delete[] line;
@@ -30,15 +33,15 @@ int main() {
 
 void input(char *&line, node *&tree) {
     //
-    line = new char[SIZE + 1];
-
+    line = new char[SIZE + 1]; // 1 place for null character '\0'
     cin.getline(line, SIZE);
 
     int pos = 0;
+    tree = read_tree(line, &pos);
 }
 
 node *read_tree(char *const &line, int *pos) {
-    // base case
+    //
     node *tree = new node;
 
     if (line[*pos] != '(') {
@@ -50,7 +53,6 @@ node *read_tree(char *const &line, int *pos) {
         (*pos)++;
 
         digit = line[*pos];
-
         if (digit >= '0' && digit <= '9') {
             candy = (candy * 10) + (digit - '0');
         }
