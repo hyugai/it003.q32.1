@@ -7,7 +7,7 @@ using namespace std;
 void input(int &n, vector<int> &v);
 void my_swap(int const &i, int const &j, vector<int> &v);
 void print_array(vector<int> const &v);
-void qs_partition(int const &target, int &l, int &r, vector<int> &v);
+int qs_partition(int const &target, int &l, int &r, vector<int> &v);
 void my_qs(int l, int r, vector<int> &v);
 
 int main() {
@@ -35,40 +35,24 @@ void print_array(vector<int> const &v) {
 }
 
 void my_qs(int l, int r, vector<int> &v) {
-    // base case; no element (l > r), only 1 element (l = r)
+    // base case: 0 or 1 element in bound
     if (l >= r) {
         return;
     }
 
-    int m{l + (r - l) / 2}, i{l}, j{r};
+    int m{l + (r - l) / 2}, i{l}, j{j};
 
-    // printf("abc");
-    qs_partition(v.at(m), i, j, v);
-
-    printf("%d %d\n", i, r);
-    // printf("def");
-    // my_qs(i, r, v);
+    int p{qs_partition(v.at(m), i, j, v)};
 }
 
-void qs_partition(int const &target, int &i, int &j, vector<int> &v) {
-    //
-    if (i == j) {
-        return;
+int qs_partition(int const &target, int &i, int &j, vector<int> &v) {
+    // base case
+    if (i >= j) {
+        return j;
     }
 
     while (v.at(i) > target) {
-        i++;
     }
-
-    while (v.at(j) < target) {
-        j--;
-    }
-
-    if (i <= j) {
-        my_swap(i, j, v);
-    }
-
-    return qs_partition(target, i, j, v);
 }
 
 void my_swap(int const &i, int const &j, vector<int> &v) {
