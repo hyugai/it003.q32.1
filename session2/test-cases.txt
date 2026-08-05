@@ -112,3 +112,7 @@
 
 2
 100 1
+
+# quick sort - increasing whole number
+10
+7 4 2 5 10 3 1 9 6 8
