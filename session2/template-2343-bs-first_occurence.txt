@@ -1,0 +1,37 @@
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+define
+include
+lower_bound
+upper_bound
+binary_search
+equal_range
+###End banned keyword*/
+
+
+#include <iostream>
+using namespace std;
+
+int a[100005];
+
+//###INSERT CODE HERE -
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        int x;
+        cin >> x;
+        cout << firstOccurrence(a, n, x) << "\n";
+    }
+
+    return 0;
+}
