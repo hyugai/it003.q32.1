@@ -34,9 +34,7 @@ bool greater_student(SinhVien const &lhs, SinhVien const &rhs) {
 
 void insertionSort(SinhVien *a, int const &n, int i = 1) {
     /*
-     * 0 -> no sorting
-     * 1 -> no sorting
-     * n - 1 -> all elements are already sorted ? (check later: n or n - 1)
+     * base case
      * */
     if (i == n) {
         return;
