@@ -26,10 +26,34 @@ int main() {
 void QuickSort(int ls[], int b, int e) {
 
     // ###INSERT CODE HERE -
-    int pivot{ls[e]}, p{b - 1}, j{b};
+    /*
+     * this version uses last element as pivot -> cause TLE
+     * */
+    if (b >= e) {
+        return;
+    }
+
+    int pivot{ls[e]}, p{b}, j{b};
 
     while (j < e) {
         if (ls[j] <= pivot) {
+            int t{ls[p]};
+
+            ls[p] = ls[j];
+            ls[j] = t;
+
+            p++;
         }
+
+        j++;
     }
+
+    int t{ls[p]};
+
+    ls[p] = pivot;
+    ls[e] = t;
+
+    //
+    QuickSort(ls, b, p - 1);
+    QuickSort(ls, p + 1, e);
 }
