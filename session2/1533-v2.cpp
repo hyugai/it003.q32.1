@@ -44,12 +44,52 @@ void QuickSort(int ls[], int b, int e) {
      *  min = b -> compare mid, e -> found max
      * */
 
-    int idxes[]{b, b + (e - b) / 2, e, -1};
+    int mid{b + (e - b) / 2}, idxes[]{b, mid, e, -1};
 
     for (int *i{idxes}; *i != e; i++) {
         int min_idx{*i};
 
-        for (int *j{++i}; *j != -1; j++) {
+        for (int *j{i + 1}; *j != -1; j++) {
+            min_idx = (ls[*j] < ls[min_idx] ? *j : min_idx);
         }
+
+        if (min_idx != *i) {
+            int t{ls[*i]};
+
+            ls[*i] = ls[min_idx];
+            ls[min_idx] = t;
+        }
+    }
+
+    /*
+     * */
+    int pivot{ls[mid]}, i{b}, j{e};
+
+    while (i <= j) {
+        while (ls[i] < pivot) {
+            i++;
+        }
+
+        while (ls[j] > pivot) {
+            j--;
+        }
+
+        if (i <= j) {
+            int t{ls[i]};
+
+            ls[i] = ls[j];
+            ls[j] = t;
+
+            i++;
+            j--;
+        }
+    }
+
+    if (j > b) {
+        QuickSort(ls, b, j);
+    }
+
+    if (i < e) {
+        QuickSort(ls, i, e);
     }
 }

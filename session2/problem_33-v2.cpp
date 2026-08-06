@@ -19,7 +19,8 @@ void print_swap_idxes();
 int main() {
     //
     ios::sync_with_stdio(false);
-    cin.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     ll n;
     vector<ll> v;
