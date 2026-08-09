@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -6,6 +7,7 @@ using namespace std;
 using ll = long long;
 
 static vector<ll> swap_idxes;
+static string output;
 
 void input(ll &n, ll *&a);
 void print_array(ll &n, ll *&a);
@@ -30,8 +32,8 @@ int main() {
     cout << "Day sau khi sap xep: ";
     print_array(n, a);
 
-    cout << "Cac hoan vi duoc thuc hien trong Quick Sort:\n";
-    print_swap_idxes();
+    cout << "Cac hoan vi duoc thuc hien trong Quick Sort:\n" << output;
+    // print_swap_idxes();
 
     //
     delete[] a;
@@ -82,8 +84,8 @@ void my_qs_partition(ll &left, ll &right, ll *&a) {
             my_swap(a[left], a[right]);
 
             if (left != right) {
-                swap_idxes.push_back(left);
-                swap_idxes.push_back(right);
+                output +=
+                    to_string(left + 1) + ' ' + to_string(right + 1) + '\n';
             }
 
             left++;
