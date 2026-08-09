@@ -1,12 +1,16 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
 using ll = long long;
 
-static vector<ll> swap_idxes;
+/*
+ * the action of pushing elements to vector does not cause TLE; however, using
+ * loop to print its elements does.
+ *
+ * -> pushing elements to a string, which is printed just once is much faster
+ * */
 static string output;
 
 void input(ll &n, ll *&a);
@@ -33,22 +37,11 @@ int main() {
     print_array(n, a);
 
     cout << "Cac hoan vi duoc thuc hien trong Quick Sort:\n" << output;
-    // print_swap_idxes();
 
     //
     delete[] a;
 
     return 0;
-}
-
-void print_swap_idxes() {
-    ll i{0};
-
-    while (i < swap_idxes.size()) {
-        cout << swap_idxes.at(i) + 1 << (i % 2 ? '\n' : ' ');
-
-        i++;
-    }
 }
 
 void my_qs(ll left, ll right, ll *&a) {
