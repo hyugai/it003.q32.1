@@ -1,4 +1,9 @@
 10% progress -> wecode
- earn score as much as possible for each test case
+earn score as much as possible for each test case
 
- while learning you still got plenty of time, so if a code fail, i should create another version of recursively until the problem is solved
+while learning you still got plenty of time, so if a code fail, i should create another version of recursively until the problem is solved
+
+search
+sort
+linked list, stack & queue
+BST
