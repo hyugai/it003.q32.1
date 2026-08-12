@@ -106,32 +106,42 @@ int main() {
 // ###INSERT CODE HERE -
 bool less_student(Hocsinh lhs, Hocsinh rhs) {
     //
-    if (lhs.Ten < rhs.Ten) {
-        return true;
+    if (lhs.Ten != rhs.Ten) {
+        return (lhs.Ten < rhs.Ten ? true : false);
     }
 
-    int pos = lhs.Ten.find(" ");
-    string lhs_Ho{lhs.Ten.substr(0, pos)},
-        lhs_Dem{lhs.Ten.substr(pos + 1, lhs.Hodem.length() - pos)};
+    if (lhs.Hodem != rhs.Hodem) {
+        int i{0}, j{0};
 
-    pos = rhs.Ten.find(" ");
-    string rhs_Ho{rhs.Ten.substr(0, pos)},
-        rhs_Dem{rhs.Ten.substr(pos + 1, rhs.Hodem.length() - pos)};
+        while (i < lhs.Hodem.length() && j < rhs.Hodem.length()) {
+            if (lhs.Hodem.at(i) == ' ') {
+                i++;
 
-    if (lhs_Dem < rhs_Dem || lhs_Ho < rhs_Ho) {
-        return true;
+                continue;
+            }
+
+            if (rhs.Hodem.at(j) == ' ') {
+                j++;
+
+                continue;
+            }
+
+            i++;
+            j++;
+        }
     }
 
-    if (lhs.Nam > rhs.Nam) {
-        return true;
+    //
+    if (lhs.Nam != rhs.Nam) {
+        return (lhs.Nam > rhs.Nam ? true : false);
     }
 
-    if (lhs.Thang > rhs.Thang) {
-        return true;
+    if (lhs.Thang != rhs.Thang) {
+        return (lhs.Thang > rhs.Thang ? true : false);
     }
 
-    if (lhs.Ngay > rhs.Ngay) {
-        return true;
+    if (lhs.Ngay != rhs.Ngay) {
+        return (lhs.Ngay > rhs.Ngay ? true : false);
     }
 
     return false;
