@@ -82,3 +82,17 @@ int main() {
 }
 
 // ###INSERT CODE HERE -
+Node *FindLast(List l, Hocsinh n) {
+    //
+    Node *p{l.head}, *stu{NULL};
+
+    while (p) {
+        if (p->data.Hodem == n.Hodem && p->data.Ten == n.Ten) {
+            stu = p;
+        }
+
+        p = p->next;
+    }
+
+    return stu;
+}
