@@ -177,3 +177,23 @@ ENQUEUE 2
 ENQUEUE 3
 DEQUEUE
 SIZE
+
+# 2358
+
+5
+ADD baocao
+ADD hoadon
+PRINT
+PRINT
+PRINT
+
+3
+PRINT
+ADD tailieu
+PRINT
+
+4
+ADD a
+ADD b
+ADD c
+PRINT
