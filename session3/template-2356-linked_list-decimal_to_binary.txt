@@ -1,0 +1,26 @@
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+define
+include
+###End banned keyword*/
+
+#include <iostream>
+using namespace std;
+
+// Implement a stack of int yourself (array or linked list, do NOT use std::stack)
+// and use it to write the function below:
+//   void printBinary(int n)
+//     Print the binary representation of n (no leading zeros), followed by a newline.
+//     Hint: push n % 2, then n /= 2; finally pop the bits to print them (LIFO).
+//###INSERT CODE HERE -
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+
+    printBinary(n);
+
+    return 0;
+}
