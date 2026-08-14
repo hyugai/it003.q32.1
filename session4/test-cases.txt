@@ -1,0 +1,75 @@
+-----2261-----
+# Input
+7
+50 30 70 20 40 60 80
+# Output
+20 80
+
+# Input
+1
+42
+# Output
+42 42
+
+-----2262-----
+
+# Input
+5
+10 5 15 3 7
+7
+# Output
+YES
+
+# Input
+5
+10 5 15 3 7
+99
+# Output
+NO
+
+-----2265-----
+
+# Input
+7
+50 30 70 20 40 60 80
+40
+# Output
+Pred: 30
+Succ: 50
+
+# Input
+7
+50 30 70 20 40 60 80
+20
+# Output
+Pred: NONE
+Succ: 30
+
+# Input
+7
+50 30 70 20 40 60 80
+80
+# Output
+Pred: 70
+Succ: NONE
+
+-----2266-----
+# Input
+5
+50 30 70 20 40
+35
+# Output
+50 30 20 40 35 70
+
+# Input
+3
+10 5 15
+5
+# Output
+DUPLICATE
+
+# Input
+0
+42
+# Output
+42
