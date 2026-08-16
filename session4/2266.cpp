@@ -56,6 +56,47 @@ void NLR(Node *root, bool &first) {
 // Returns true if v was inserted, false if v already exists.
 bool insertUnique(Node *&root, int v) {
     // ###INSERT CODE HERE -
+    Node *n{createNode(v)};
+
+    if (!root) {
+        root = n;
+
+        return true;
+    }
+
+    Node *p{root};
+
+    while (p) {
+        if (v == p->data) {
+            return false;
+        }
+
+        if (v < p->data) {
+            if (!p->left) {
+                p->left = n;
+
+                return true;
+            }
+
+            p = p->left;
+
+            continue;
+        }
+
+        if (v > p->data) {
+            if (!p->right) {
+                p->right = n;
+
+                return true;
+            }
+
+            p = p->right;
+
+            continue;
+        }
+    }
+
+    return true;
 }
 
 int main() {

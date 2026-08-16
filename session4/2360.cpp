@@ -1,0 +1,83 @@
+/*###Begin banned keyword - each of the following line if appear in code will
+raise error. regex supported
+
+###End banned keyword*/
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+};
+
+Node *createNode(int data) {
+    Node *newNode = new Node();
+    newNode->data = data;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+void insertNode(Node *&root, Node *node) {
+    if (root == NULL) {
+        root = node;
+        return;
+    }
+    if (node->data < root->data) {
+        if (root->left == NULL) {
+            root->left = node;
+            return;
+        }
+        insertNode(root->left, node);
+        return;
+    }
+    if (root->right == NULL) {
+        root->right = node;
+        return;
+    }
+    insertNode(root->right, node);
+}
+
+// ###INSERT CODE HERE -
+bool searchNode(Node *root, int x) {
+    // segmentation fault -> access attribute through NULL instead of a pointer
+    //
+    // -> check null
+    if (root) {
+        if (x == root->data) {
+            return true;
+        }
+
+        if (x < root->data) {
+            return searchNode(root->left, x);
+        }
+
+        if (x > root->data) {
+            return searchNode(root->right, x);
+        }
+    }
+
+    return false;
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    Node *root = NULL;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int data;
+        cin >> data;
+        insertNode(root, createNode(data));
+    }
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        int x;
+        cin >> x;
+        cout << (searchNode(root, x) ? "YES" : "NO") << "\n";
+    }
+    return 0;
+}
