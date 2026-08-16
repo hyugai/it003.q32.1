@@ -1,0 +1,31 @@
+# 2428
+setprecision(n + 1) -> round up to n digit after comma
+
+# 2429
+map -> elements sorted by keys (increasing order)
+    -> operator [key] initializes value to 0 if key isn't available
+
+print out elements without sorting -> map (count) + vector (order)
+    -> use vector to store elements with their true order
+        -> push new element to vector if it's not in map
+            -> use map[key]: false (init to 0 if not available), true otherwise
+
+# 2430
+variables that are used throughout program can be defined outside main with static keyword to avoid repeated declaration
+
+# 2432
+prime number 
+    -> less than 2: false
+    -> iteration: i *  i <= n
+        -> (n % i) == 0: false
+    -> true, otherwise
+
+# 2343
+reverse linked list -> add head
+
+# 2344
+linked list -> reverse (if required) -> delete first occurence
+
+delete a node
+    -> check 2 main cases if tail of list can be ignored: deleted node is at head or not
+        ->  prev_p ? prev_p->next = p->next : l.head = p->next;
