@@ -159,3 +159,13 @@ EMPTY
 21 45 12 5 8 9 2 # leftmost node has right sub-tree
 2
 12 5
+
+-----2363-----
+7
+5 3 7 2 4 6 8
+
+1
+10
+
+4
+1 2 3 4
