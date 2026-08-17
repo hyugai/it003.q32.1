@@ -29,3 +29,11 @@ linked list -> reverse (if required) -> delete first occurence
 delete a node
     -> check 2 main cases if tail of list can be ignored: deleted node is at head or not
         ->  prev_p ? prev_p->next = p->next : l.head = p->next;
+
+# 2345
+linked list -> check order
+    -> use 2 variables (is_increasing and is_decreasing), if both are 0 or 1 then there's no order, increasing or decreasing otherwise
+
+# 2346
+-> use selection sort
+    -> variables p, q
