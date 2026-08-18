@@ -99,11 +99,15 @@ void insert_node(ListNode &l, Node *prev_p, Node *p, int x) {
     // head
     if (!prev_p) {
         add_head(l, x);
+
+        return;
     }
 
     // tail
     if (!p) {
         add_tail(l, x);
+
+        return;
     }
 
     // mid
@@ -115,7 +119,6 @@ void insert_node(ListNode &l, Node *prev_p, Node *p, int x) {
 }
 
 void insert_x(ListNode &l, int x) {
-    // insert after
     Node *prev_p{nullptr}, *p{l.head};
 
     while (p) {
@@ -137,15 +140,24 @@ int main() {
     input(l);
 
     if (l.head) {
-        int x;
-        cin >> x;
 
-        cout << "Danh sach vua nhap la: ", output(l);
+        cout << "Danh sach vua nhap la: ";
+        output(l);
 
         if (check_order(l)) {
-            cout << "Danh sach sau khi chen so " << x << " la: ",
-                insert_x(l, x), output(l);
+            int x;
+            cin >> x;
+
+            cout << "Danh sach sau khi chen so " << x << " la: ";
+
+            insert_x(l, x);
+
+            output(l);
+        } else {
+            cout << "Danh sach khong tang.\n";
         }
+    } else {
+        cout << "Danh sach rong.\n";
     }
 
     return 0;

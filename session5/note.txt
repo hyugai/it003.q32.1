@@ -20,20 +20,30 @@ prime number
         -> (n % i) == 0: false
     -> true, otherwise
 
-# 2343
+# 2433
 reverse linked list -> add head
 
-# 2344
+# 2434
 linked list -> reverse (if required) -> delete first occurence
 
 delete a node
     -> check 2 main cases if tail of list can be ignored: deleted node is at head or not
         ->  prev_p ? prev_p->next = p->next : l.head = p->next;
 
-# 2345
+# 2435
 linked list -> check order
     -> use 2 variables (is_increasing and is_decreasing), if both are 0 or 1 then there's no order, increasing or decreasing otherwise
 
-# 2346
+# 2436
 -> use selection sort
     -> variables p, q
+
+# 2438
+-> else if = if + return (avoid runtime error)
+
+# 2439
+TLE -> operator new -> solution: use static string to store input instead of create a linked list (if input is not changed)
+
+# 2440
+TLE -> s = ... + s
+    -> s += ... (not cause TLE)
