@@ -47,3 +47,6 @@ TLE -> operator new -> solution: use static string to store input instead of cre
 # 2440
 TLE -> s = ... + s
     -> s += ... (not cause TLE)
+
+# 2441
+prime number -> remember (x % i) not (x % 2)
