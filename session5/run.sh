@@ -1,5 +1,5 @@
 #!/bin/bash
 
-file_name="2442.cpp"
+file_name="2443.cpp"
 
 g++ "$file_name" && ./a.out <input.txt
