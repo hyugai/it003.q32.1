@@ -50,3 +50,8 @@ TLE -> s = ... + s
 
 # 2441
 prime number -> remember (x % i) not (x % 2)
+
+# 2447
+BST -> remember to use pass by reference for add_node function
+        -> do NOT add duplicate values
+

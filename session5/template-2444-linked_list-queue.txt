@@ -1,0 +1,34 @@
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+define
+include
+class
+struct
+template
+###End banned keyword*/
+#include <string>
+#include <iostream>
+using namespace std;
+struct node {
+    char info;
+    node* pNext;
+};
+struct List {
+    node* pHead;
+    node* pTail;
+};
+void CreateList(List& l);
+node* CreateNode(char x);
+void AddTail(List& l, node* p);
+void Xuat(List l);
+void enqueue(List& l, char x);
+int dequeue(List& l);
+bool isEmpty(List l);
+int main()
+{
+    char c;
+    cin >> c;
+    string s = "";
+    cin >> s;
+    List queue;
+    CreateList(queue);
+//###INSERT CODE HERE -
