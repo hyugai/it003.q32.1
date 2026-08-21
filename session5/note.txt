@@ -55,5 +55,15 @@ prime number -> remember (x % i) not (x % 2)
 BST -> remember to use pass by reference for add_node function
         -> do NOT add duplicate values
 
+# 2451
+BST -> delete node
+        -> tree has only 1 node (root): delete
+        -> leaf: delete
+        -> level-1 node: overload
+        -> level-2 node: find + swap + delete (no right sub-tree) /overload (right sub-tree)
+
 # 2452
 BST -> complex operation built up on either tree traversal or tree search
+
+# 2451
+BST -> use LNR traversal to find n smallest numbers meeting some requirements
