@@ -55,3 +55,5 @@ prime number -> remember (x % i) not (x % 2)
 BST -> remember to use pass by reference for add_node function
         -> do NOT add duplicate values
 
+# 2452
+BST -> complex operation built up on either tree traversal or tree search
