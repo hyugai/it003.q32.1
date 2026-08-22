@@ -1,0 +1,47 @@
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+include
+class
+template
+struct
+###End banned keyword*/
+
+#include <iostream>
+
+using namespace std;
+
+
+struct node{
+    int data;
+    node *left;
+    node *right;
+};
+
+int kiemTraNhanhTrai(node* root, int x);
+int kiemTraNhanhPhai(node* root, int x);
+
+void inDanhSachGiamDan(node* TREE);
+
+string chuyenNhiPhan(int x);
+
+bool kiemTraDoiXung(string s);
+void demSoChuoiDoiXung(node* TREE, int &cnt);
+
+node* themPhanTuVaoCay(node* &root, int x);
+
+int main (){
+    node* TREE = NULL;
+    int x, cnt = 0;
+    while (scanf("%d", &x)){
+        if (x == 0){
+            inDanhSachGiamDan(TREE);
+            cout << endl;
+            demSoChuoiDoiXung(TREE, cnt);
+            cout << "Co " << cnt << " node thoa de bai." << endl;
+            break;
+        }
+        else
+            themPhanTuVaoCay(TREE, x);
+    }
+}
+
+//###INSERT CODE HERE -
