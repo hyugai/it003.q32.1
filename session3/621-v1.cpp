@@ -105,10 +105,31 @@ int main() {
 }
 
 // ###INSERT CODE HERE -
-bool less_student(Hocsinh lhs, Hocsinh rhs) {}
+bool less_student(Hocsinh lhs, Hocsinh rhs) {
+    if (lhs.Ten != rhs.Ten) {
+        return lhs.Ten < rhs.Ten ? true : false;
+    }
+
+    if (lhs.Hodem != rhs.Hodem) {
+        return lhs.Hodem < rhs.Hodem;
+    }
+
+    if (lhs.Nam != rhs.Nam) {
+        return lhs.Nam > rhs.Nam;
+    }
+
+    if (lhs.Thang != rhs.Thang) {
+        return lhs.Thang > rhs.Thang;
+    }
+
+    if (lhs.Ngay != rhs.Ngay) {
+        return lhs.Ngay > rhs.Ngay;
+    }
+
+    return false;
+}
 
 void swap_student(Node *lhs, Node *rhs) {
-    //
     Hocsinh t{lhs->data};
 
     lhs->data = rhs->data;
@@ -116,36 +137,45 @@ void swap_student(Node *lhs, Node *rhs) {
     rhs->data = t;
 }
 
-Node *partition(List l) {
-    //
-    Hocsinh x{l.tail->data};
-
-    Node *p{l.head}, *q{l.head};
-
-    while (p != l.tail) {
-        less_student(p->data, x) ? swap_student(p, q), q = q->next : p;
-
-        p = p->next;
-    }
-
-    swap_student(q, l.tail);
-
-    return q;
-}
-
 void Sort(List &l) {
-    // base case
     if (!l.head || l.head == l.tail) {
         return;
     }
 
-    Node *p{partition(l)};
+    List left, right;
+    CreateList(left), CreateList(right);
 
-    List left{}, right{};
+    Node *p{l.head->next}, *pivot{l.head};
 
-    CreateList(left), left.head = l.head, left.tail = p;
-    CreateList(right), right.head = p, right.tail = l.tail;
+    while (p) {
+        Node *next{p->next};
+        p->next = NULL;
+
+        less_student(p->data, pivot->data) ? AddTail(left, p->data)
+                                           : AddTail(right, p->data);
+
+        p = next;
+    }
 
     Sort(left);
     Sort(right);
+
+    CreateList(l);
+
+    // merge
+    p = left.head;
+    while (p) {
+        AddTail(l, p->data);
+
+        p = p->next;
+    }
+
+    AddTail(l, pivot->data);
+
+    p = right.head;
+    while (p) {
+        AddTail(l, p->data);
+
+        p = p->next;
+    }
 }
